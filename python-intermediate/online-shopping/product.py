@@ -1,11 +1,11 @@
 class Product:
-    def __init__(self, name:str, description:str, price:int, seller:str, availability:bool=True):
-        self._name = name
-        self._description = description
-        self._price = price
-        self._seller = seller
-        self._availability = availability
-        self._review = []
+    def __init__(self, name, description, seller, price, available):
+        self.name = name
+        self.description = description
+        self.seller = seller
+        self.reviews = []
+        self.price = price
+        self.available = available
 
     def __str__(self):
-        return f"Product({self._name}: {self._description} at ${self._price}"
+        return f"Product({self.name}, {self.description}) at ${self.price}"

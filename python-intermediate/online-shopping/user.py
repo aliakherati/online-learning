@@ -3,25 +3,28 @@ from product import Product
 
 class User:
     def __init__(self, id, name):
-        self._id = id
-        self._name = name
-        self._review = []
+        self.id = id
+        self.name = name
+        self.reviews = []
 
-    def sell_product(self, name:str, description:str, price:int):
-        product = Product(name, description, self, availability=True)
+    def write_review(self, content, product):
+        review = Review(content, self, product)
+        self.reviews.append(review)
+        product.reviews.append(review)
+        print(f"{self.name}'s review of {product.name}: {review.content}")
+        return review
+
+    def sell_product(self, name, description, price):
+        product = Product(name, description, price, self, available=True)
         print(f"{product} is on the market!")
+        return product
 
-    def buy_product(self, product:Product):
-        if product._availability:
-            print(f"{self} is buying {product}")
-            product._availability = False
+    def buy_product(self, product):
+        if product.available:
+            print(f"{self} is buying {product}.")
+            product.available = False
         else:
             print(f"{product} is no longer available.")
 
-    def write_review(self, description:str, product:Product):
-        review = Review(description, self, product._name)
-        self._review.append(review)
-        product._review.append(review)
-
-    def __str__(self) -> str:
-        return f"User(id: {self._id}, name: {self._name})"
+    def __str__(self):
+        return f"User(id={self.id}, name={self.name})"

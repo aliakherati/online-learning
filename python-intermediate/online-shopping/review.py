@@ -1,5 +1,8 @@
 class Review:
-    def __init__(self, description, user, product):
-        self._description = description
-        self._user = user
-        self._product = product
+    def __init__(self, content, user, product):
+        self.content = content
+        self.user = user
+        self.product = product
+
+    def __str__(self):
+        return f"Review of {self.product} by {self.user}: '{self.content}'"
