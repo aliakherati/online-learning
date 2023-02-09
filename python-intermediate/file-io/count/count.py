@@ -2,7 +2,6 @@ import collections
 import pathlib
 
 def count_unique_words(filename:pathlib.Path):
-    # your code here 
     with open(filename) as f:
         text = f.read()
     chars = {".":"", ",":"", "!":"", "?":"", ":":"", ";":"", "\n":" ", "\'":"", "-":"", "[":"", "]":""}
