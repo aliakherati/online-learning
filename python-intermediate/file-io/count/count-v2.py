@@ -2,7 +2,6 @@ import collections
 import pathlib
 
 def count_unique_words(filename:pathlib.Path):
-    # your code here 
     with open(filename) as f:
         text = f.read()
     chars = {".":"", ",":"", "!":"", "?":"", ":":"", ";":"", "\n":" ", "\'":"", "-":"", "[":"", "]":""}
@@ -16,4 +15,3 @@ def count_unique_words(filename:pathlib.Path):
 
 if __name__ == '__main__':
     count_unique_words(pathlib.Path('./hamlet.txt'))
-    
